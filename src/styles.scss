@@ -1,0 +1,395 @@
+/* Font Imports */
+@import url("https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&family=Rajdhani:wght@300;700&family=Share+Tech+Mono&display=swap");
+
+/* Colors */
+$colors: (
+  primary: #ffffff,
+  secondary: #000000,
+  tertiary: #ff4040,
+  accent: #ff7040,
+);
+
+@function color($color) {
+  @return map-get($map: $colors, $key: $color);
+}
+
+@function colorAlpha($color, $alpha) {
+  @return rgba(color($color), $alpha);
+}
+
+/* Fonts */
+$fonts: (
+  body: (
+    "Rajdhani",
+    sans-serif,
+  ),
+  hero: (
+    "Libre Barcode 128 Text",
+    sans-serif,
+  ),
+  accent: (
+    "Share Tech Mono",
+    monospace,
+  ),
+);
+
+@function font($font) {
+  @return map-get($map: $fonts, $key: $font);
+}
+
+/* Font Sizes */
+$fontsizes: (
+  s: 0.618rem,
+  r: 1rem,
+  m: 1.618rem,
+  l: 2.618rem,
+  xl: 4.236rem,
+  xxl: 6.854rem,
+  xxx: 11.089rem,
+);
+
+@function size($size) {
+  @return map-get($map: $fontsizes, $key: $size);
+}
+
+/* Box Sizing */
+$margin: 0.8rem;
+$padding: 0.6rem;
+
+/* Border Sizing */
+$border-width: 0.05rem;
+$border-radius: 50%;
+
+@mixin scanlines($color, $height: 1px, $angle: 0, $opacity: 0.2) {
+  &:after {
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent $height,
+      $color $height,
+      $color $height * 2
+    );
+    background-size: 100% $height * 2, cover;
+    transform-origin: 50% 50%;
+    transform: rotate($angle);
+    content: "";
+    opacity: $opacity;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    bottom: 0%;
+  }
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  font-size: 112.5%;
+}
+
+body {
+  background: color(secondary);
+  font-family: font(body);
+  font-weight: 300;
+  line-height: 1.333;
+  color: color(primary);
+
+  scrollbar-width: none;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: $padding;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: $margin * 2 0 $margin;
+  font-family: font(hero);
+  font-weight: 300;
+  line-height: 1.3;
+  border-bottom: color(accent);
+}
+
+h1 {
+  font-size: size(xxx);
+  margin-top: 0;
+}
+
+h2 {
+  font-size: size(xl);
+}
+
+h3 {
+  font-size: size(l);
+}
+
+h4,
+h5,
+h6 {
+  font-family: font(body);
+  font-weight: 700;
+  border-bottom: none;
+}
+
+h4 {
+  font-size: size(xl);
+}
+
+h5 {
+  font-size: size(l);
+}
+
+h6 {
+    font-size: size(m);
+}
+
+small,
+.text_small {
+  font-size: size(s);
+}
+
+h1#title {
+  width: inherit;
+  font-size: 20vw;
+  color: white;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+  user-select: none;
+
+  &::before,
+  &::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  &::before {
+    left: 3px;
+    background: black;
+    text-shadow: -2px 0 #ff4040;
+    animation: glitch-anim-1 2s infinite linear alternate-reverse;
+  }
+
+  &::after {
+    left: -3px;
+    background: black;
+    text-shadow: -2px 0 #1838c5;
+    animation: glitch-anim-2 2s infinite linear alternate-reverse;
+  }
+}
+
+hr {
+  background-color: color(accent);
+  border: none;
+  height: 2px;
+}
+
+em,
+code {
+  font-family: font(accent);
+}
+
+header {
+  width: inherit;
+  height: fit-content;
+  padding: $padding;
+
+  section#slideshow {
+    position: relative;
+    display: block;
+    box-sizing: content-box;
+    width: 100%;
+    height: 512px;
+    margin: $margin 0 $margin * 4 0;
+    pointer-events: none;
+    user-select: none;
+
+    figure.slideshow.fade {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: $padding * 2;
+      box-sizing: border-box;
+      //border: 1px solid color(accent);
+      transition: opacity 1s, z-index 2s, transform 2s;
+
+      img {
+        width: inherit;
+        height: inherit;
+        object-fit: cover;
+        z-index: 999;
+        opacity: inherit;
+      }
+
+      figcaption {
+        display: none;
+      }
+
+      div.border {
+        width: inherit;
+        height: inherit;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        @include scanlines(#fff, 2px, 0deg, 0.025);
+
+        div {
+          position: absolute;
+          width: 32px;
+          height: 32px;
+          //background-image: url(Images/corners_64_BloomOrange.png);
+          filter: hue-rotate();
+        }
+
+        :nth-child(1) {
+          top: 0;
+          left: 0;
+          background-position: top left;
+        }
+
+        :nth-child(2) {
+          top: 0;
+          right: 0;
+          background-position: top right;
+        }
+
+        :nth-child(3) {
+          bottom: 0;
+          left: 0;
+          background-position: bottom left;
+        }
+
+        :nth-child(4) {
+          bottom: 0;
+          right: 0;
+          background-position: bottom right;
+        }
+      }
+    }
+  }
+
+  section#hero {
+    position: relative;
+    padding: $padding;
+  }
+}
+
+footer {
+  background-color: rgb(10, 10, 10);
+  padding: $padding * 2;
+}
+
+div.background-decal {
+  background-color: black;
+  //background-image: url("Images/sky_0_stars_up.png");
+  background-size: cover;
+  mix-blend-mode: lighten;
+  width: inherit;
+  height: inherit;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+  animation: stars-anim linear infinite;
+
+  &:nth-child(1) {
+    animation-duration: 128s;
+  }
+
+  &:nth-child(2) {
+    animation-duration: 256s;
+  }
+
+  &:nth-child(3) {
+    animation-duration: 512s;
+  }
+}
+
+@keyframes glitch-anim-1 {
+  $steps: 20;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      $top: random(100);
+      $bottom: random(101 - $top);
+      clip-path: inset(#{$top}% 0 #{$bottom}% 0);
+    }
+  }
+}
+
+@keyframes glitch-anim-2 {
+  $steps: 20;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      $top: random(100);
+      $bottom: random(101 - $top);
+      clip-path: inset(#{$top}% 0 #{$bottom}% 0);
+    }
+  }
+}
+
+@keyframes stars-anim {
+  0% {
+    background-position: center -10000px;
+  }
+
+  100% {
+    background-position: center 10000px;
+  }
+}
+
+// Laptop sizes and larger...
+@media (min-width: 1200px) {
+  body {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+  }
+
+  header,
+  main,
+  footer {
+    flex: 1;
+  }
+
+  nav,
+  footer {
+    width: 100%;
+  }
+
+  header,
+  main {
+    max-width: 1000px;
+  }
+
+  nav h1 {
+    font-size: 16vh;
+  }
+
+  div.background-decal {
+    background-size: contain;
+  }
+}
