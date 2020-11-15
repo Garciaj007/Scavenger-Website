@@ -29,7 +29,7 @@ export default function BlogPage({ data }) {
               <span>{l.length} min read</span>
             </div>
           </div>
-          <img src=""/>
+          <img src='' />
         </Link>
       ))}
     </Layout>

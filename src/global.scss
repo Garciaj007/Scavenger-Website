@@ -16,19 +16,19 @@ body {
 }
 
 body {
-    font-family: font(body);
-    font-weight: 300;
-    line-height: 1.333;
-    color: color(primary);
-    scrollbar-width: none;
-    position: relative;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: $padding;
-    box-sizing: border-box;
-    overflow-x: hidden;
-  }
+  font-family: font(body);
+  font-weight: 300;
+  line-height: 1.333;
+  color: color(primary);
+  scrollbar-width: none;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: $padding;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
 
 p {
   margin-bottom: 1rem;
@@ -59,11 +59,13 @@ h1 {
   margin-top: 0;
 }
 
-h2, h4 {
+h2,
+h4 {
   font-size: size(xl);
 }
 
-h3, h5 {
+h3,
+h5 {
   font-size: size(l);
 }
 
@@ -116,40 +118,40 @@ div.background-decal {
 }
 
 h1#title {
-    width: inherit;
-    color: white;
-    position: relative;
-    margin: 0;
+  width: inherit;
+  color: white;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+  user-select: none;
+
+  &::before,
+  &::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
     box-sizing: border-box;
-    user-select: none;
-  
-    &::before,
-    &::after {
-      content: attr(data-text);
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      box-sizing: border-box;
-      mix-blend-mode: color-burn;
-    }
-  
-    &::before {
-      left: 3px;
-      background: black;
-      text-shadow: -2px 0 #ff4040;
-      animation: glitch-anim-1 2s infinite linear alternate-reverse;
-    }
-  
-    &::after {
-      left: -3px;
-      background: black;
-      text-shadow: -2px 0 #1838c5;
-      animation: glitch-anim-2 2s infinite linear alternate-reverse;
-    }
+    mix-blend-mode: color-burn;
   }
+
+  &::before {
+    left: 3px;
+    background: black;
+    text-shadow: -2px 0 #ff4040;
+    animation: glitch-anim-1 2s infinite linear alternate-reverse;
+  }
+
+  &::after {
+    left: -3px;
+    background: black;
+    text-shadow: -2px 0 #1838c5;
+    animation: glitch-anim-2 2s infinite linear alternate-reverse;
+  }
+}
 
 @keyframes stars-anim {
   0% {
@@ -162,26 +164,26 @@ h1#title {
 }
 
 @keyframes glitch-anim-1 {
-    $steps: 20;
-    @for $i from 0 through $steps {
-      #{percentage($i*(1/$steps))} {
-        $top: random(100);
-        $bottom: random(101 - $top);
-        clip-path: inset(#{$top}% 0 #{$bottom}% 0);
-      }
+  $steps: 20;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      $top: random(100);
+      $bottom: random(101 - $top);
+      clip-path: inset(#{$top}% 0 #{$bottom}% 0);
     }
   }
-  
-  @keyframes glitch-anim-2 {
-    $steps: 20;
-    @for $i from 0 through $steps {
-      #{percentage($i*(1/$steps))} {
-        $top: random(100);
-        $bottom: random(101 - $top);
-        clip-path: inset(#{$top}% 0 #{$bottom}% 0);
-      }
+}
+
+@keyframes glitch-anim-2 {
+  $steps: 20;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      $top: random(100);
+      $bottom: random(101 - $top);
+      clip-path: inset(#{$top}% 0 #{$bottom}% 0);
     }
   }
+}
 
 // Laptop sizes and larger...
 @media (min-width: 1200px) {

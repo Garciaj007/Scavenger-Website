@@ -7,8 +7,8 @@ export default function AboutPage({ data }) {
     <Layout>
       <h1>{data.site.siteMetadata.title}</h1>
       <p>
-        We&apos;re the only site running on your computer dedicated to showing the
-        best photos and videos of pandas eating lots of food.
+        We&apos;re the only site running on your computer dedicated to showing
+        the best photos and videos of pandas eating lots of food.
       </p>
       <small></small>
     </Layout>

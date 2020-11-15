@@ -1,33 +1,32 @@
-@import '../variables';
+@import "../variables";
 
-main
-{
-    width: 100%;
+main {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+
+  section {
+    position: relative;
+    padding: $padding;
+    min-width: 200pt;
+    min-height: 80pt;
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
+    align-items: stretch;
+    justify-content: space-evenly;
 
-    section {
-        position: relative;
-        padding: $padding;
-        min-width: 200pt;
-        min-height: 80pt;
-        display: flex;
-        flex-flow: row nowrap;
-        align-items: stretch;
-        justify-content: space-evenly;
-
-        h2 {
-            font-family: font(accent);
-            margin: 0;
-        }
-
-        div {
-            padding: $padding;
-            border-left: solid 2pt color(accent);
-        }
-
-        a {
-            display: block;
-        }
+    h2 {
+      font-family: font(accent);
+      margin: 0;
     }
+
+    div {
+      padding: $padding;
+      border-left: solid 2pt color(accent);
+    }
+
+    a {
+      display: block;
+    }
+  }
 }

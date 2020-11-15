@@ -17,14 +17,14 @@ export default function Layout({ children }) {
           }
         }
       }
-    `
+    `,
   )
 
   return (
     <div>
       <Helmet title={data.site.siteMetadata.title}></Helmet>
       <header>
-        <h1 id="title">Scavenger</h1>
+        <h1 id='title'>Scavenger</h1>
       </header>
       <div>
         <nav>
@@ -36,13 +36,13 @@ export default function Layout({ children }) {
             ))}
             <hr />
           </div>
-          <div className="social"></div>
+          <div className='social'></div>
         </nav>
         <main>{children}</main>
       </div>
-      <div className="background-decal"></div>
-      <div className="background-decal"></div>
-      <div className="background-decal"></div>
+      <div className='background-decal'></div>
+      <div className='background-decal'></div>
+      <div className='background-decal'></div>
     </div>
   )
 }

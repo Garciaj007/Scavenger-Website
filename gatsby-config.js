@@ -15,7 +15,7 @@ module.exports = {
       },
       {
         name: `Blog`,
-        link: `/blog/`
+        link: `/blog/`,
       },
       {
         name: `Wiki`,
@@ -23,8 +23,8 @@ module.exports = {
       },
       {
         name: `Our Partners`,
-        link: `/about/`
-      }
+        link: `/about/`,
+      },
     ],
   },
   plugins: [
