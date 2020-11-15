@@ -15,21 +15,23 @@ module.exports = {
       },
       {
         name: `Blog`,
-        link: `/Blog`
+        link: `/blog/`
       },
       {
         name: `Wiki`,
-        link: `/Wiki`,
+        link: `/wiki/`,
       },
       {
         name: `Our Partners`,
-        link: `/About`
+        link: `/about/`
       }
     ],
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-remark`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     `gatsby-plugin-emotion`,
     `gatsby-plugin-sass`,
     {
@@ -38,6 +40,6 @@ module.exports = {
         name: `src`,
         path: `${__dirname}/src/`,
       },
-    }
+    },
   ],
 }

@@ -1,0 +1,44 @@
+@import "../variables.scss";
+
+main {
+  display: flex;
+  flex-flow: column nowrap;
+
+  a.blog-listing {
+    width: 100%;
+    min-width: 320pt;
+    position: relative;
+    color: color(primary);
+    text-decoration: none;
+    padding: $padding;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: row nowrap;
+
+    div {
+      h1 {
+        font-size: size(xl);
+        margin: 0;
+      }
+
+      h2 {
+        font-family: font(accent);
+        font-size: size(m);
+        color: colorAlpha(primary, 0.6);
+        text-decoration: underline;
+        margin: 0;
+      }
+
+      div.details {
+        text-decoration: underline;
+      }
+    }
+
+    border: solid 1pt transparent;
+
+    &:hover,
+    &:focus {
+      border: solid 1pt color(accent);
+    }
+  }
+}

@@ -2,7 +2,7 @@ import { graphql } from "gatsby"
 import React from "react"
 import Layout from "../layouts/layout"
 
-export default function About({ data }) {
+export default function AboutPage({ data }) {
   return (
     <Layout>
       <h1>{data.site.siteMetadata.title}</h1>

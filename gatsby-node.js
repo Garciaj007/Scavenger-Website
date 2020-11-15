@@ -9,7 +9,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     createNodeField({
       node,
       name: `slug`,
-      value: slug,
+      value: basePath + slug,
     })
   }
 }
@@ -41,10 +41,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         return
   }
 
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  result.data.allMarwkdownRemark.edges.forEach(({ node }) => {
     const blogTemplate = path.resolve(`./src/templates/blog.js`)
     const wikiTemplate = path.resolve(`./src/templates/wiki.js`)
-    console.log(node.parent.relativeDirectory)
     createPage({
       path: node.fields.slug,
       component: node.parent.relativeDirectory === "posts" ? blogTemplate : wikiTemplate,

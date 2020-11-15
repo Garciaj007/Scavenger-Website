@@ -1,5 +1,4 @@
 import React from "react"
-import { css } from "@emotion/core"
 import { Link, useStaticQuery, graphql } from "gatsby"
 import { Helmet } from "react-helmet"
 
@@ -21,33 +20,29 @@ export default function Layout({ children }) {
     `
   )
 
-  console.log(data.site.siteMetadata.menuLinks)
-
   return (
     <div>
-      <Helmet title={data.site.siteMetadata.title} />
+      <Helmet title={data.site.siteMetadata.title}></Helmet>
       <header>
         <h1 id="title">Scavenger</h1>
       </header>
       <div>
         <nav>
-          {data.site.siteMetadata.menuLinks.forEach(elem => {
-            console.log(elem)
-            return <Link to={elem.path}>{elem.name}</Link>
-          })}
-          <hr />
+          <div>
+            {data.site.siteMetadata.menuLinks.map(link => (
+              <Link key={`link_${link.name}`} to={link.link}>
+                {link.name}
+              </Link>
+            ))}
+            <hr />
+          </div>
           <div className="social"></div>
         </nav>
         <main>{children}</main>
       </div>
+      <div className="background-decal"></div>
+      <div className="background-decal"></div>
+      <div className="background-decal"></div>
     </div>
-    // <div
-    //   css={css`
-    //     margin: 0 auto;
-    //     max-width: 700px;
-    //     padding: ${rhythm(2)};
-    //     padding-top: ${rhythm(1.5)};
-    //   `}
-    // />
   )
 }

@@ -5,6 +5,4 @@ date: "2017-08-10"
 
 ## The Mysterious Hello World
 
-Lorem ipsum, whatevercat.
-
-This is a lovely cat.
+Lorem ipsum, whatever.

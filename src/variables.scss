@@ -1,0 +1,61 @@
+/* Font Imports */
+@import url("https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&family=Rajdhani:wght@300;700&family=Share+Tech+Mono&display=swap");
+
+/* Colors */
+$colors: (
+  primary: #ffffff,
+  secondary: #000000,
+  tertiary: #ff4040,
+  accent: #ff7040,
+);
+
+@function color($color) {
+  @return map-get($map: $colors, $key: $color);
+}
+
+@function colorAlpha($color, $alpha) {
+  @return rgba(color($color), $alpha);
+}
+
+/* Fonts */
+$fonts: (
+  body: (
+    "Rajdhani",
+    sans-serif,
+  ),
+  hero: (
+    "Libre Barcode 128 Text",
+    sans-serif,
+  ),
+  accent: (
+    "Share Tech Mono",
+    monospace,
+  ),
+);
+
+@function font($font) {
+  @return map-get($map: $fonts, $key: $font);
+}
+
+/* Font Sizes */
+$fontsizes: (
+  s: 0.618rem,
+  r: 1rem,
+  m: 1.618rem,
+  l: 2.618rem,
+  xl: 4.236rem,
+  xxl: 6.854rem,
+  xxx: 11.089rem,
+);
+
+@function size($size) {
+  @return map-get($map: $fontsizes, $key: $size);
+}
+
+/* Box Sizing */
+$margin: 0.8rem;
+$padding: 0.6rem;
+
+/* Border Sizing */
+$border-width: 0.05rem;
+$border-radius: 4pt;
