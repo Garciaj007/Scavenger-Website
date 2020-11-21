@@ -1,10 +1,30 @@
 ---
 title: "Hello World Blog Post"
 date: "2017-08-10"
-description: "This is the first post in the world, great stuff really"
+author: "Juriel Garcia"
 ---
 
-## Pandas are really sweet.
+## Breeds
+
+Breeds
+
+> This is a quote
+
+1. First item
+2. Second item
+3. Third item
+
+---
+
+- An unsorted list.
+- An unsorted list.
+- An unsorted list.
+
+`This is some code`
+
+```js
+var i = 0;
+```
 
 Here's a video of a panda eating sweets.
 

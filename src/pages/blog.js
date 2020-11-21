@@ -7,12 +7,14 @@ import "./blog.scss"
 
 export default function BlogPage({ data }) {
   const listings = data.allMarkdownRemark.nodes.map(n => {
+    console.log("Author: ", n.frontmatter.author);
     return {
       slug: "/" + n.fields.slug,
       title: n.frontmatter.title,
       date: n.frontmatter.date,
-      heading: n.headings[0].value,
+      description: n.frontmatter.description !== null ? n.frontmatter.description : n.headings[0].value,
       length: n.timeToRead,
+      author: n.frontmatter.author
     }
   })
   console.log(listings)
@@ -22,11 +24,12 @@ export default function BlogPage({ data }) {
         <Link className='blog-listing' to={l.slug} key={l.title}>
           <div>
             <h1>{l.title}</h1>
-            <h2>{l.heading}</h2>
+            <h2>{l.description}</h2>
             <div className='details'>
               <span>{l.date}</span>
               <span> · </span>
               <span>{l.length} min read</span>
+              <span className="author">{l.author}</span>
             </div>
           </div>
           <img src='' />
@@ -49,6 +52,8 @@ export const query = graphql`
         frontmatter {
           title
           date
+          author
+          description
         }
         headings {
           value

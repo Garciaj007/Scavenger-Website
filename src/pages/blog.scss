@@ -16,6 +16,7 @@ main {
     flex-flow: row nowrap;
 
     div {
+      
       h1 {
         font-size: size(xl);
         margin: 0;
@@ -30,7 +31,14 @@ main {
       }
 
       div.details {
+        position: relative;
         text-decoration: underline;
+
+        span.author {
+          text-decoration: inherit;
+          position: absolute;
+          right: 0;
+        }
       }
     }
 

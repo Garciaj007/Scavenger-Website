@@ -41,7 +41,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         return
   }
 
-  result.data.allMarwkdownRemark.edges.forEach(({ node }) => {
+  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
     const blogTemplate = path.resolve(`./src/templates/blog.js`)
     const wikiTemplate = path.resolve(`./src/templates/wiki.js`)
     createPage({

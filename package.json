@@ -22,9 +22,12 @@
     "gatsby-plugin-sass": "^2.4.2",
     "gatsby-plugin-sharp": "^2.7.1",
     "gatsby-plugin-typography": "^2.5.13",
+    "gatsby-remark-autolink-headers": "^2.5.0",
     "gatsby-source-filesystem": "^2.4.2",
     "gatsby-source-s3-image": "^1.6.221",
     "gatsby-transformer-remark": "^2.9.2",
+
+    
     "gatsby-transformer-sharp": "^2.5.21",
     "node-sass": "^4.14.1",
     "react": "^16.12.0",
