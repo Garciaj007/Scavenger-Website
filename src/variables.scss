@@ -1,5 +1,5 @@
 /* Font Imports */
-@import url("https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&family=Rajdhani:wght@300;700&family=Share+Tech+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Barcode+128&family=Libre+Barcode+128+Text&family=Rajdhani:wght@300;700&family=Share+Tech+Mono&display=swap");
 
 /* Colors */
 $colors: (
@@ -31,6 +31,9 @@ $fonts: (
     "Share Tech Mono",
     monospace,
   ),
+  barcode: (
+    "Libre Barcode 128"
+  )
 );
 
 @function font($font) {

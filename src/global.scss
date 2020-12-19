@@ -48,8 +48,16 @@ h6 {
 }
 
 h1 {
+  &::before
+  {
+    content: attr(data-excerpt);
+    font-family: font(barcode);
+    word-wrap: none;
+    box-sizing: border-box;
+
+  }
+
   font-weight: 200;
-  font-family: font(hero);
   font-size: size(xxx);
   margin-top: 0;
 }
@@ -113,6 +121,7 @@ div.background-decal {
 }
 
 h1#title {
+  font-family: font(hero);
   width: inherit;
   color: white;
   position: relative;
