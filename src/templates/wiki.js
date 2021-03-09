@@ -21,7 +21,7 @@ export default function WikiPost({ data }) {
   for (let i = slugs.length - 1; i >= 0; --i) {
     console.log(slugs[i].name)
 
-    let matches = [...html.matchAll(`/(?<=>)[^\<]*cat/ig`)];
+    let matches = [...html.matchAll(`/(?<=>)[^<]*cat/ig`)];
     console.log(matches)
     matches.map(function(match) {
       return {match: match, linked: match.replace(slugs[i].name, `<a href='${slugs[i].slug}'>${slugs[i].name}</a>`)}
